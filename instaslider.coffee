@@ -1,5 +1,6 @@
 class InstaSlider
   constructor: (@options) ->
+    @$container = $('#instaslider')
 
   run: ->
     feed = @_createInstafeed()
@@ -17,8 +18,11 @@ class InstaSlider
     url = data.images.standard_resolution.url
     return $('<img>', { src: url })
 
-  _addImageToPage: ($img) ->
-    $('#instaslider').append($img)
+  _sliderFromImages: (images) ->
+    $ul = $('<ul>', { class: 'slides' })
+    images.forEach ($img) ->
+      $ul.append $('<li>').append $img
+    return $ul
 
   _processFeed: (response) =>
     data = response.data
@@ -28,6 +32,8 @@ class InstaSlider
       images = filteredData.map @_feedDataToImgEl
     else
       images = data.map @_feedDataToImgEl
-    images.forEach @_addImageToPage
+    @$container.append @_sliderFromImages images
+    @$container.flexslider(@options.flexslider || {})
+
 
 window.InstaSlider = InstaSlider

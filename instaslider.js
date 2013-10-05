@@ -8,6 +8,7 @@
       this.options = options;
       this._processFeed = __bind(this._processFeed, this);
       this._createInstafeed = __bind(this._createInstafeed, this);
+      this.$container = $('#instaslider');
     }
 
     InstaSlider.prototype.run = function() {
@@ -36,8 +37,15 @@
       });
     };
 
-    InstaSlider.prototype._addImageToPage = function($img) {
-      return $('#instaslider').append($img);
+    InstaSlider.prototype._sliderFromImages = function(images) {
+      var $ul;
+      $ul = $('<ul>', {
+        "class": 'slides'
+      });
+      images.forEach(function($img) {
+        return $ul.append($('<li>').append($img));
+      });
+      return $ul;
     };
 
     InstaSlider.prototype._processFeed = function(response) {
@@ -50,7 +58,8 @@
       } else {
         images = data.map(this._feedDataToImgEl);
       }
-      return images.forEach(this._addImageToPage);
+      this.$container.append(this._sliderFromImages(images));
+      return this.$container.flexslider(this.options.flexslider || {});
     };
 
     return InstaSlider;

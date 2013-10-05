@@ -12,6 +12,16 @@
     </head>
     <body>
         <h1>InstaSlider!</h1>
+<pre>instaslider = new InstaSlider({
+    get: 'user',
+    userId: 590223714,
+    accessToken: '590223714.467ede5.0c9c10a86b3b415e9853ea998f7f56a1',
+    flexslider: {
+        animation: 'slide'
+    }
+});
+instaslider.run();
+</pre>
         <div id="instaslider"></div>
 
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -19,13 +29,7 @@
         <script src="instafeed.js/instafeed.min.js"></script>
         <script src="../instaslider.js"></script>
         <script>
-            var options = {
-                get: 'user',
-                userId: 590223714,
-                accessToken: '590223714.467ede5.0c9c10a86b3b415e9853ea998f7f56a1',
-                filter: 'wrappers'
-            }, instaslider = new InstaSlider(options);
-            instaslider.run();
+            eval($('pre').html());
         </script>
     </body>
 </html>
