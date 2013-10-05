@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>InstaSlider Demo</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="FlexSlider/flexslider.css">
+        <style>
+            body {
+                background-color: #ddd;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>InstaSlider!</h1>
+        <div id="instaslider"></div>
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script src="FlexSlider/jquery.flexslider-min.js"></script>
+        <script src="instafeed.js/instafeed.min.js"></script>
+        <script src="../instaslider.js"></script>
+        <script>
+            var options = {
+                get: 'user',
+                userId: 1234,
+                accessToken: '1234'
+            }, instaslider = new InstaSlider(options);
+            instaslider.run();
+        </script>
+    </body>
+</html>
