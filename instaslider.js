@@ -18,6 +18,7 @@
     };
 
     InstaSlider.prototype._createInstafeed = function() {
+      this.options.get = 'user';
       this.options.mock = true;
       this.options.success = this._processFeed;
       return new Instafeed(this.options);

@@ -7,6 +7,7 @@ class InstaSlider
     feed.run()
 
   _createInstafeed: =>
+    @options.get = 'user'
     @options.mock = true
     @options.success = @_processFeed
     new Instafeed @options
