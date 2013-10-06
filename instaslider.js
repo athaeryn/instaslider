@@ -31,10 +31,12 @@
     };
 
     InstaSlider.prototype._feedDataToImgEl = function(data) {
-      var url;
+      var titleText, url;
       url = data.images.standard_resolution.url;
+      titleText = data.caption.text;
       return $('<img>', {
-        src: url
+        src: url,
+        title: titleText
       });
     };
 

@@ -17,7 +17,8 @@ class InstaSlider
 
   _feedDataToImgEl: (data) ->
     url = data.images.standard_resolution.url
-    return $('<img>', { src: url })
+    titleText = data.caption.text
+    return $('<img>', { src: url, title: titleText })
 
   _sliderFromImages: (images) ->
     $ul = $('<ul>', { class: 'slides' })
