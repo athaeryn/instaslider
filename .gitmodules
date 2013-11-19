@@ -1,6 +1,3 @@
-[submodule "FlexSlider"]
-	path = FlexSlider
-	url = https://github.com/woothemes/FlexSlider.git
 [submodule "instafeed.js"]
 	path = instafeed.js
 	url = https://github.com/stevenschobert/instafeed.js.git
