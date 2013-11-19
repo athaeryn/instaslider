@@ -3,7 +3,7 @@
     <head>
         <title>InstaSlider Demo</title>
         <meta charset="utf-8">
-        <link rel="stylesheet" href="FlexSlider/flexslider.css">
+        <link rel="stylesheet" href="OwlCarousel/owl-carousel/owl.carousel.css">
         <style>
             * {
                 box-sizing: border-box;
@@ -43,14 +43,15 @@ instaslider = new InstaSlider({
     accessToken: '590223714.467ede5.0c9c10a86b3b415e9853ea998f7f56a1',
     filter: 'wrappers',
     flexslider: {
-        animation: 'slide'
+      singleItem: true,
+      navigation: true
     }
 });
 instaslider.run();
         </pre>
-        <div id="instaslider" class="flexslider"></div>
+        <div id="instaslider" class="owl-carousel"></div>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="FlexSlider/jquery.flexslider-min.js"></script>
+        <script src="OwlCarousel/owl-carousel/owl.carousel.min.js"></script>
         <script src="instafeed.js/instafeed.min.js"></script>
         <script src="../instaslider.js"></script>
         <script>eval($('pre').html());</script>
