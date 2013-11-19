@@ -1,3 +1,6 @@
 [submodule "instafeed.js"]
 	path = instafeed.js
 	url = https://github.com/stevenschobert/instafeed.js.git
+[submodule "OwlCarousel"]
+	path = OwlCarousel
+	url = https://github.com/OwlFonk/OwlCarousel.git

@@ -7,6 +7,7 @@
     function InstaSlider(options) {
       this.options = options;
       this._processFeed = __bind(this._processFeed, this);
+      this._sliderFromImages = __bind(this._sliderFromImages, this);
       this._createInstafeed = __bind(this._createInstafeed, this);
       this.$container = $('#instaslider');
     }
@@ -41,14 +42,14 @@
     };
 
     InstaSlider.prototype._sliderFromImages = function(images) {
-      var $ul;
-      $ul = $('<ul>', {
-        "class": 'slides'
+      var $ul,
+        _this = this;
+      $ul = $('<div>', {
+        "class": 'owl-carousel'
       });
-      images.forEach(function($img) {
-        return $ul.append($('<li>').append($img));
+      return images.forEach(function($img) {
+        return _this.$container.append($('<div>').append($img));
       });
-      return $ul;
     };
 
     InstaSlider.prototype._processFeed = function(response) {
@@ -61,8 +62,8 @@
       } else {
         images = data.map(this._feedDataToImgEl);
       }
-      this.$container.append(this._sliderFromImages(images));
-      return this.$container.flexslider(this.options.flexslider || {});
+      this._sliderFromImages(images);
+      return this.$container.owlCarousel(this.options.flexslider || {});
     };
 
     return InstaSlider;

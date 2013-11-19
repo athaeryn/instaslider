@@ -20,11 +20,10 @@ class InstaSlider
     titleText = data.caption.text
     return $('<img>', { src: url, title: titleText })
 
-  _sliderFromImages: (images) ->
-    $ul = $('<ul>', { class: 'slides' })
-    images.forEach ($img) ->
-      $ul.append $('<li>').append $img
-    return $ul
+  _sliderFromImages: (images) =>
+    $ul = $('<div>', { class: 'owl-carousel' })
+    images.forEach ($img) =>
+      @$container.append $('<div>').append $img
 
   _processFeed: (response) =>
     data = response.data
@@ -34,8 +33,7 @@ class InstaSlider
       images = filteredData.map @_feedDataToImgEl
     else
       images = data.map @_feedDataToImgEl
-    @$container.append @_sliderFromImages images
-    @$container.flexslider(@options.flexslider || {})
-
+    @_sliderFromImages images
+    @$container.owlCarousel(@options.flexslider || {})
 
 window.InstaSlider = InstaSlider
